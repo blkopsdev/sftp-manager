@@ -22,8 +22,7 @@
         <div class="wrapper @if (!auth()->check() || request()->route()->getName() == "") wrapper-full-page @endif">
 
             @if (auth()->check() && request()->route()->getName() != "")
-                @include('layouts.navbars.sidebar')
-                @include('pages/sidebarstyle')
+              @include('layouts.navbars.sidebar')
             @endif
 
             <div class="@if (auth()->check() && request()->route()->getName() != "") main-panel @endif">
@@ -43,8 +42,6 @@
     <script src="{{ asset('light-bootstrap/js/plugins/jquery.sharrre.js') }}"></script>
     <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
     <script src="{{ asset('light-bootstrap/js/plugins/bootstrap-switch.js') }}"></script>
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!--  Chartist Plugin  -->
     <script src="{{ asset('light-bootstrap/js/plugins/chartist.min.js') }}"></script>
     <!--  Notifications Plugin    -->
@@ -54,9 +51,4 @@
     <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('light-bootstrap/js/demo.js') }}"></script>
     @stack('js')
-    <script>
-      $(document).ready(function () {
-        
-      });
-    </script>
 </html>

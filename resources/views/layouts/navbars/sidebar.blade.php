@@ -7,7 +7,7 @@ Tip 2: you can also add an image using data-image tag
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="#" class="simple-text">
-                {{ __(Sftp manager) }}
+                {{ __("Sftp manager") }}
             </a>
         </div>
         <ul class="nav">
@@ -30,7 +30,12 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("User Management") }}</p>
                 </a>
             </li>
-
+            <li class="nav-item @if($activePage == 'icons') active @endif">
+                <a class="nav-link" href="{{route('page.index', 'icons')}}">
+                    <i class="nc-icon nc-atom"></i>
+                    <p>{{ __("Icons") }}</p>
+                </a>
+            </li>
             {{-- <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>
