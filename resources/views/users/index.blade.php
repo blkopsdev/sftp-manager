@@ -42,7 +42,13 @@
                                     <td>{{ $user->type }}</td>
                                     <td>
                                         <a href="{{ route('edit_user', $user->id) }}" class="pl-2 pr-2"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="text-danger pl-2 pr-2"><i class="fa fa-trash"></i></a>
+                                        <form id="delete-form" method="POST" action="{{ route('delete_user', $user->id) }}">
+                                            @csrf
+                                            <div class="form-group mb-0">
+                                              <button type="submit" class="btn btn-danger btn-link text-danger p-0" style="font-size: 16px;"><i class="fa fa-trash"></i></button>
+                                            </div>
+                                        </form>
+                                        {{-- <a href="#" class="text-danger pl-2 pr-2"><i class="fa fa-trash"></i></a> --}}
                                     </td>
                                 </tr>
                                 @endforeach

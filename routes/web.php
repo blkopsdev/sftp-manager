@@ -28,6 +28,7 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function () {
 		Route::post('/create', ['uses'=>'App\Http\Controllers\UserController@store']);
 		Route::get('/edit/{id}', ['as' => 'edit_user', 'uses'=>'App\Http\Controllers\UserController@edit']);
 		Route::post('/edit/{id}', ['uses'=>'App\Http\Controllers\UserController@update']);
+		Route::post('/delete/{id}', ['as' =>'delete_user','uses'=>'App\Http\Controllers\UserController@destroy']);
 	});
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::patch('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
