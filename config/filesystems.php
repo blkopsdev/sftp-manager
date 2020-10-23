@@ -55,6 +55,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST'), // aws server host name
+            'username' => env('SFTP_USERNAME'),
+            'password' => env('SFTP_PASSWORD'),
+            // Settings for SSH key based authentication…
+            // 'privateKey' => '/path/to/privateKey', 
+            // 'password' => 'encryption-password',
+            // Optional SFTP Settings…
+            'port' => 22,
+            'root' => env('SFTP_ROOT'),
+            // 'timeout' => 30,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

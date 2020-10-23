@@ -30,6 +30,7 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function () {
 		Route::post('/edit/{id}', ['uses'=>'App\Http\Controllers\UserController@update']);
 		Route::post('/delete/{id}', ['as' =>'delete_user','uses'=>'App\Http\Controllers\UserController@destroy']);
 	});
+	Route::post('/files/upload', ['as'=>'file_upload', 'uses'=>'\App\Http\Controllers\HomeController@fileUpload']);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::patch('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::patch('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

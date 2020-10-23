@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use Storage;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Sftp\SftpAdapter;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Storage::extend('sftp', function ($app, $config) {
+            return new Filesystem(new SftpAdapter($config));
+        });
     }
 }
