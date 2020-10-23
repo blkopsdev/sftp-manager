@@ -35,12 +35,12 @@
                     </a>
                 </li>
             </ul> --}}
-            <ul class="navbar-nav d-flex align-items-center mr-4">
+            <ul class="navbar-nav d-flex align-items-center">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="nc-icon nc-single-02"></span>
                     </a>
-                    <div class="dropdown-menu py-2" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu py-2 dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('profile.edit') }}">{{ __('Profile') }}</a>
                         <div class="divider"></div>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item">
