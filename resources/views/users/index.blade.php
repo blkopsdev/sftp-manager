@@ -117,8 +117,8 @@
         -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
-                        {{ __("Creative Tim") }}
+                    <a href="#" class="simple-text">
+                        {{ __(Sftp manager) }}
                     </a>
                 </div>
                 <ul class="nav">
@@ -427,7 +427,7 @@
             <script>
                 document.write(new Date().getFullYear())
             </script>2020
-            <a href="http://www.creative-tim.com">Creative Tim</a> &amp; <a href="https://www.updivision.com">Updivision</a> , made with love for a better web
+            <a href="#">Creative Tim</a> &amp; <a href="https://www.updivision.com">Updivision</a> , made with love for a better web
         </p>
     </nav>
 </div>
