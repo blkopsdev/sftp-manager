@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type'
     ];
 
     /**
@@ -42,7 +43,7 @@ class User extends Authenticatable
     ];
 
     public function is_admin(){
-        if ($this->user_type == 'admin'){
+        if ($this->type == 'admin'){
             return true;
         }
         return false;

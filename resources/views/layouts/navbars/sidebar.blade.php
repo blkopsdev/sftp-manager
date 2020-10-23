@@ -24,12 +24,14 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Profile") }}</p>
                 </a>
             </li>
+            @if (Auth::user()->is_admin())
             <li class="nav-item @if($activePage == 'user-management') active @endif">
                 <a class="nav-link" href="{{route('users')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __("User Management") }}</p>
                 </a>
             </li>
+            @endif
             <li class="nav-item @if($activePage == 'icons') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'icons')}}">
                     <i class="nc-icon nc-atom"></i>

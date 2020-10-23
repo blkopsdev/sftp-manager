@@ -45,7 +45,7 @@
                                         <option value="admin">{{ __('Admin') }}</option>
                                     </select>
     
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'type'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">

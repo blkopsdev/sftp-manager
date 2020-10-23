@@ -48,4 +48,44 @@ class UserController extends Controller
         User::create($data);
         return redirect()->route('users')->withStatus(__('User has been created successfully.'));
     }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        $title = "Edit User";
+
+        return view('users.edit', compact('user', 'title'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $rules = [
+            'name' => 'required|string|max:255',
+        ];
+
+        if ($request->email != $user->email) {
+            $rules['email'] = 'required|string|email|max:255|unique:users';
+        }
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'type' => $request->type,
+        ];
+
+        if ($request->password != null) {
+            $rules['password'] = 'required|confirmed|min:8|string';
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $this->validate($request, $rules);
+
+        $user->update($data);
+
+        return redirect()->route('users')->withStatus(__('User has been updated successfully.'));
+    }
+
+
 }

@@ -22,10 +22,12 @@ Auth::routes();
 Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function () {
 	Route::get('/', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
-	Route::group(['prefix' => 'users', 'middleware'=>'admin'], function () {
+	Route::group(['prefix' => 'users', 'middleware'=>'only_admin_access'], function () {
 		Route::get('/', ['as' => 'users', 'uses'=>'App\Http\Controllers\UserController@index']);
 		Route::get('/create', ['as' => 'create_user', 'uses'=>'App\Http\Controllers\UserController@create']);
 		Route::post('/create', ['uses'=>'App\Http\Controllers\UserController@store']);
+		Route::get('/edit/{id}', ['as' => 'edit_user', 'uses'=>'App\Http\Controllers\UserController@edit']);
+		Route::post('/edit/{id}', ['uses'=>'App\Http\Controllers\UserController@update']);
 	});
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::patch('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);

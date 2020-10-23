@@ -11,10 +11,6 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <h3 class="mb-0">Users</h3>
-                                <p class="text-sm mb-0">
-                                    This is an example of user management. This is a minimal setup in order to get
-                                    started fast.
-                                </p>
                             </div>
                             <div class="col-4 text-right">
                                 <a href="{{ route('create_user') }}" class="btn btn-sm btn-default">Add user</a>
@@ -23,10 +19,10 @@
                     </div>
 
                     <div class="col-12 mt-2">
+                        @include('alerts.success')
                     </div>
 
                     <div class="toolbar">
-                        <!--        Here you can write extra buttons/actions for the toolbar              -->
                     </div>
                     <div class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">
@@ -44,8 +40,9 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->type }}</td>
-                                    <td class="">
-                                        <a href="#"><i class="fa fa-edit"></i></a>
+                                    <td>
+                                        <a href="{{ route('edit_user', $user->id) }}" class="pl-2 pr-2"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="text-danger pl-2 pr-2"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
