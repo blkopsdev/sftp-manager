@@ -19,9 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+
+	Route::group(['prefix' => 'users', 'middleware'=>'admin'], function () {
+		Route::get('/', ['as' => 'users', 'uses'=>'App\Http\Controllers\UserController@index']);
+		Route::get('/create', ['as' => 'create_user', 'uses'=>'App\Http\Controllers\UserController@create']);
+		Route::post('/create', ['uses'=>'App\Http\Controllers\UserController@store']);
+	});
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::patch('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::patch('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

@@ -21,11 +21,11 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item @if($activePage == 'user') active @endif">
                 <a class="nav-link" href="{{route('profile.edit')}}">
                     <i class="nc-icon nc-single-02"></i>
-                    <p>{{ __("User Profile") }}</p>
+                    <p>{{ __("Profile") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'user-management') active @endif">
-                <a class="nav-link" href="{{route('user.index')}}">
+                <a class="nav-link" href="{{route('users')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __("User Management") }}</p>
                 </a>

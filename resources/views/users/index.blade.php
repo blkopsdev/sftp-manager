@@ -17,7 +17,7 @@
                                 </p>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="#" class="btn btn-sm btn-default">Add user</a>
+                                <a href="{{ route('create_user') }}" class="btn btn-sm btn-default">Add user</a>
                             </div>
                         </div>
                     </div>
@@ -32,21 +32,23 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Start</th>
-                                    <th>Actions</th>
+                                    <th>{{ __('Name') }}</th>
+                                    <th>{{ __('Email') }}</th>
+                                    <th>{{ __('Type') }}</th>
+                                    <th>{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($users as $user)
                                 <tr>
-                                    <td>Admin Admin</td>
-                                    <td>admin@lightbp.com</td>
-                                    <td>2020-02-25 12:37:04</td>
-                                    <td class="d-flex justify-content-end">
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->type }}</td>
+                                    <td class="">
                                         <a href="#"><i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
